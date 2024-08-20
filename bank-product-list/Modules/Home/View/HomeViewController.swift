@@ -7,18 +7,12 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     private let viewModel: HomeViewModelProtocol
 
-    private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(SpotlightCell.self, forCellReuseIdentifier: SpotlightCell.reuseIdentifier)
-        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
-        tableView.register(CashCell.self, forCellReuseIdentifier: CashCell.reuseIdentifier)
-        return tableView
-    }()
+    private var homeView = HomeView()
+
 
     init(viewModel: HomeViewModelProtocol = HomeViewModel()) {
         self.viewModel = viewModel
@@ -29,31 +23,26 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func loadView() {
+        self.view = homeView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupTableView()
         bindViewModel()
         viewModel.fetchStoreData()
     }
 
-    private func setupUI() {
-        view.backgroundColor = .white
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+    private func setupTableView() {
+        homeView.tableView.delegate = self
+        homeView.tableView.dataSource = self
     }
 
     private func bindViewModel() {
         viewModel.didUpdateData = { [weak self] in
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self?.homeView.tableView.reloadData()
             }
         }
 
@@ -85,20 +74,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SpotlightCell.reuseIdentifier, for: indexPath) as! SpotlightCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SpotlightCell.reuseIdentifier, for: indexPath) as? SpotlightCell else { return UITableViewCell() }
+
             let item = viewModel.spotlightItems[indexPath.row]
             cell.configure(with: item)
+
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as! ProductCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as? ProductCell else { return UITableViewCell() }
+
             let product = viewModel.products[indexPath.row]
             cell.configure(with: product)
+
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: CashCell.reuseIdentifier, for: indexPath) as! CashCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CashCell.reuseIdentifier, for: indexPath) as? CashCell else { return UITableViewCell() }
+
             if let cash = viewModel.cash {
                 cell.configure(with: cash)
             }
+
             return cell
         default:
             return UITableViewCell()

@@ -28,6 +28,7 @@
 		B73CE83E2C750917004E9919 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE83D2C750917004E9919 /* ProductCell.swift */; };
 		B73CE8402C750956004E9919 /* CashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE83F2C750956004E9919 /* CashCell.swift */; };
 		B73CE8802C75115E004E9919 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE87F2C75115E004E9919 /* APIEndpoints.swift */; };
+		B73CE8822C751731004E9919 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE8812C751731004E9919 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		B73CE83D2C750917004E9919 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B73CE83F2C750956004E9919 /* CashCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashCell.swift; sourceTree = "<group>"; };
 		B73CE87F2C75115E004E9919 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		B73CE8812C751731004E9919 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 			children = (
 				B73CE8372C7503E9004E9919 /* Cells */,
 				B73CE8352C7503D3004E9919 /* HomeViewController.swift */,
+				B73CE8812C751731004E9919 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				B73CE8332C7502FD004E9919 /* HomeViewModel.swift in Sources */,
 				B73CE8292C74E5D9004E9919 /* NetworkError.swift in Sources */,
 				B73CE7EA2C74D9E7004E9919 /* AppDelegate.swift in Sources */,
+				B73CE8822C751731004E9919 /* HomeView.swift in Sources */,
 				B73CE8802C75115E004E9919 /* APIEndpoints.swift in Sources */,
 				B73CE8272C74E563004E9919 /* StoreResponseItem.swift in Sources */,
 				B73CE8312C75020A004E9919 /* HomeViewModelProtocol.swift in Sources */,
