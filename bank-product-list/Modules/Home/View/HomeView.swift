@@ -12,10 +12,12 @@ class HomeView: UIView {
     // MARK: - UI Elements
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(SpotlightCell.self, forCellReuseIdentifier: SpotlightCell.reuseIdentifier)
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
         tableView.register(CashCell.self, forCellReuseIdentifier: CashCell.reuseIdentifier)
+
         return tableView
     }()
 
