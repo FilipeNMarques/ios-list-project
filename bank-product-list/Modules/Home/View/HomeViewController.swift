@@ -47,8 +47,14 @@ final class HomeViewController: UIViewController {
         }
 
         viewModel.didFailWithError = { error in
-            //TODO: Handle error, maybe show an alert to the user
-            print("Failed to fetch data: \(error.localizedDescription)")
+            DispatchQueue.main.async {
+                GlobalAlert.showDefault(
+                    on: self,
+                    title: "Erro ao carregar os dados",
+                    message: "Tente novamente mais tarde.",
+                    actionTitle: "Beleza"
+                )
+            }
         }
     }
 }
