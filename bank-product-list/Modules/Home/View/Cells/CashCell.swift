@@ -7,29 +7,53 @@
 
 import UIKit
 
-class CashCell: UITableViewCell {
+final class CashCell: UITableViewCell {
 
     static let reuseIdentifier = "CashCell"
 
+    private let containerView: UIView = {
+        let view = UIView()
+
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 12
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 6
+        view.layer.masksToBounds = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
+    }()
+
     private let bannerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+
+        imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 12
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+
         return imageView
     }()
 
     private let titleLabel: UILabel = {
         let label = UILabel()
+
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
     }()
 
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
+        label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
     }()
 
@@ -43,24 +67,30 @@ class CashCell: UITableViewCell {
     }
 
     private func setupUI() {
-        contentView.addSubview(bannerImageView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(containerView)
+        containerView.addSubview(bannerImageView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(descriptionLabel)
 
         NSLayoutConstraint.activate([
-            bannerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            bannerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            bannerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            bannerImageView.heightAnchor.constraint(equalToConstant: 150),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
 
-            titleLabel.topAnchor.constraint(equalTo: bannerImageView.bottomAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            bannerImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            bannerImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            bannerImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            bannerImageView.heightAnchor.constraint(equalToConstant: 120),
 
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            titleLabel.topAnchor.constraint(equalTo: bannerImageView.bottomAnchor, constant: 12),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 6),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -6),
+
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 6),
+            descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -6),
+            descriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -12)
         ])
     }
 

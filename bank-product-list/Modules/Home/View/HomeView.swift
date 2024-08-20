@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeView: UIView {
+final class HomeView: UIView {
 
     // MARK: - UI Elements
     let tableView: UITableView = {
@@ -17,6 +17,7 @@ class HomeView: UIView {
         tableView.register(SpotlightCell.self, forCellReuseIdentifier: SpotlightCell.reuseIdentifier)
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
         tableView.register(CashCell.self, forCellReuseIdentifier: CashCell.reuseIdentifier)
+        tableView.rowHeight = UITableView.automaticDimension
 
         return tableView
     }()
@@ -33,7 +34,6 @@ class HomeView: UIView {
 
     // MARK: - UI Setup
     private func setupUI() {
-        backgroundColor = .white
         addSubview(tableView)
 
         NSLayoutConstraint.activate([
