@@ -67,7 +67,7 @@ class SpotlightCell: UITableViewCell {
     func configure(with item: SpotlightItem) {
         titleLabel.text = item.name
         descriptionLabel.text = item.description
-        // Load the image asynchronously
+
         if let url = URL(string: item.bannerURL) {
             // Use an image loading method or library
             bannerImageView.loadImage(from: url)

@@ -27,7 +27,6 @@
 		B73CE83C2C7508CF004E9919 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE83B2C7508CF004E9919 /* UIImageView+Extensions.swift */; };
 		B73CE83E2C750917004E9919 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE83D2C750917004E9919 /* ProductCell.swift */; };
 		B73CE8402C750956004E9919 /* CashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE83F2C750956004E9919 /* CashCell.swift */; };
-		B73CE87E2C750DA8004E9919 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE87D2C750DA8004E9919 /* ViewController.swift */; };
 		B73CE8802C75115E004E9919 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE87F2C75115E004E9919 /* APIEndpoints.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +72,6 @@
 		B73CE83B2C7508CF004E9919 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		B73CE83D2C750917004E9919 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B73CE83F2C750956004E9919 /* CashCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashCell.swift; sourceTree = "<group>"; };
-		B73CE87D2C750DA8004E9919 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B73CE87F2C75115E004E9919 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,7 +130,6 @@
 				B73CE81E2C74E3F0004E9919 /* Utils */,
 				B73CE81D2C74E3DF004E9919 /* Modules */,
 				B73CE7F72C74D9E8004E9919 /* Info.plist */,
-				B73CE87D2C750DA8004E9919 /* ViewController.swift */,
 			);
 			path = "bank-product-list";
 			sourceTree = "<group>";
@@ -399,7 +396,6 @@
 				B73CE8212C74E4CD004E9919 /* SpotlightItem.swift in Sources */,
 				B73CE83E2C750917004E9919 /* ProductCell.swift in Sources */,
 				B73CE82D2C74E6E4004E9919 /* APIClient.swift in Sources */,
-				B73CE87E2C750DA8004E9919 /* ViewController.swift in Sources */,
 				B73CE8362C7503D3004E9919 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
