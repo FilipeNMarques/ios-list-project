@@ -31,7 +31,13 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         bindViewModel()
+        setupNavigationBar()
         viewModel.fetchStoreData()
+    }
+
+    private func setupNavigationBar() {
+        title = "Digio Store"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func setupTableView() {
