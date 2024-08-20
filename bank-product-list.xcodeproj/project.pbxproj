@@ -29,6 +29,7 @@
 		B73CE8402C750956004E9919 /* CashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE83F2C750956004E9919 /* CashCell.swift */; };
 		B73CE8802C75115E004E9919 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE87F2C75115E004E9919 /* APIEndpoints.swift */; };
 		B73CE8822C751731004E9919 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE8812C751731004E9919 /* HomeView.swift */; };
+		B73CE8842C751C01004E9919 /* GlobalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE8832C751C00004E9919 /* GlobalAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		B73CE83F2C750956004E9919 /* CashCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashCell.swift; sourceTree = "<group>"; };
 		B73CE87F2C75115E004E9919 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		B73CE8812C751731004E9919 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B73CE8832C751C00004E9919 /* GlobalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +128,11 @@
 			isa = PBXGroup;
 			children = (
 				B73CE8192C74E331004E9919 /* App */,
-				B73CE81C2C74E3DA004E9919 /* Models */,
 				B73CE81A2C74E34F004E9919 /* Network */,
+				B73CE81D2C74E3DF004E9919 /* Modules */,
+				B73CE81C2C74E3DA004E9919 /* Models */,
 				B73CE81F2C74E3FB004E9919 /* Resources */,
 				B73CE81E2C74E3F0004E9919 /* Utils */,
-				B73CE81D2C74E3DF004E9919 /* Modules */,
 				B73CE7F72C74D9E8004E9919 /* Info.plist */,
 			);
 			path = "bank-product-list";
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				B73CE83A2C7508C4004E9919 /* Extensions */,
+				B73CE8832C751C00004E9919 /* GlobalAlert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				B73CE83E2C750917004E9919 /* ProductCell.swift in Sources */,
 				B73CE82D2C74E6E4004E9919 /* APIClient.swift in Sources */,
 				B73CE8362C7503D3004E9919 /* HomeViewController.swift in Sources */,
+				B73CE8842C751C01004E9919 /* GlobalAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
