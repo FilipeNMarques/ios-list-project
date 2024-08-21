@@ -14,7 +14,6 @@ final class CashCell: UITableViewCell {
     private let containerView: UIView = {
         let view = UIView()
 
-        view.backgroundColor = .white
         view.layer.cornerRadius = 12
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 0.1
