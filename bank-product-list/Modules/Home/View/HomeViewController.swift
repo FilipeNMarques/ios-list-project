@@ -75,7 +75,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return viewModel.products.count
+            return 1
         case 2:
             return viewModel.cash != nil ? 1 : 0
         default:
@@ -86,14 +86,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SpotlightTableViewCell.reuseIdentifier, for: indexPath) as! SpotlightTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SpotlightTableViewCell.reuseIdentifier, for: indexPath) as? SpotlightTableViewCell else { return UITableViewCell() }
+
             cell.spotlightItems = viewModel.spotlightItems
+
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as? ProductCell else { return UITableViewCell() }
 
-            let product = viewModel.products[indexPath.row]
-            cell.configure(with: product)
+            cell.products = viewModel.products
 
             return cell
         case 2:
@@ -146,6 +147,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             return 150
+        case 1:
+            return 220
         default:
             return UITableView.automaticDimension
         }
