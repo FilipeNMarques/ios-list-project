@@ -31,6 +31,7 @@
 		B73CE8842C751C01004E9919 /* GlobalAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE8832C751C00004E9919 /* GlobalAlert.swift */; };
 		B73CE8872C755A79004E9919 /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE8862C755A79004E9919 /* MockAPIClient.swift */; };
 		B73CE88B2C755ABF004E9919 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE88A2C755ABF004E9919 /* HomeViewModelTests.swift */; };
+		B73CE88F2C765E48004E9919 /* SpotlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE88E2C765E48004E9919 /* SpotlightTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		B73CE8832C751C00004E9919 /* GlobalAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAlert.swift; sourceTree = "<group>"; };
 		B73CE8862C755A79004E9919 /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
 		B73CE88A2C755ABF004E9919 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		B73CE88E2C765E48004E9919 /* SpotlightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				B73CE8382C7504B2004E9919 /* SpotlightCell.swift */,
 				B73CE83D2C750917004E9919 /* ProductCell.swift */,
 				B73CE83F2C750956004E9919 /* CashCell.swift */,
+				B73CE88E2C765E48004E9919 /* SpotlightTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				B73CE8332C7502FD004E9919 /* HomeViewModel.swift in Sources */,
 				B73CE8292C74E5D9004E9919 /* NetworkError.swift in Sources */,
 				B73CE7EA2C74D9E7004E9919 /* AppDelegate.swift in Sources */,
+				B73CE88F2C765E48004E9919 /* SpotlightTableViewCell.swift in Sources */,
 				B73CE8822C751731004E9919 /* HomeView.swift in Sources */,
 				B73CE8802C75115E004E9919 /* APIEndpoints.swift in Sources */,
 				B73CE8272C74E563004E9919 /* StoreResponseItem.swift in Sources */,

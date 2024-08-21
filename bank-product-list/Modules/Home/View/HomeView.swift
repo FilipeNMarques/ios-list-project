@@ -14,10 +14,11 @@ final class HomeView: UIView {
         let tableView = UITableView(frame: .zero, style: .grouped)
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(SpotlightCell.self, forCellReuseIdentifier: SpotlightCell.reuseIdentifier)
+        tableView.register(SpotlightTableViewCell.self, forCellReuseIdentifier: SpotlightTableViewCell.reuseIdentifier)
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
         tableView.register(CashCell.self, forCellReuseIdentifier: CashCell.reuseIdentifier)
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.showsVerticalScrollIndicator = false
 
         return tableView
     }()

@@ -73,7 +73,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return viewModel.spotlightItems.count
+            return 1
         case 1:
             return viewModel.products.count
         case 2:
@@ -86,11 +86,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SpotlightCell.reuseIdentifier, for: indexPath) as? SpotlightCell else { return UITableViewCell() }
-
-            let item = viewModel.spotlightItems[indexPath.row]
-            cell.configure(with: item)
-
+            let cell = tableView.dequeueReusableCell(withIdentifier: SpotlightTableViewCell.reuseIdentifier, for: indexPath) as! SpotlightTableViewCell
+            cell.spotlightItems = viewModel.spotlightItems
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as? ProductCell else { return UITableViewCell() }
@@ -120,7 +117,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        tableView.separatorStyle = .none
         titleLabel.textColor = .black
+        tableView.backgroundColor = .white
 
         switch section {
         case 1:
@@ -144,6 +143,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        switch indexPath.section {
+        case 0:
+            return 150
+        default:
+            return UITableView.automaticDimension
+        }
     }
 }
