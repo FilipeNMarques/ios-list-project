@@ -1,5 +1,5 @@
 //
-//  SpotlightCell.swift
+//  SpotlightCollectionViewCell.swift
 //  bank-product-list
 //
 //  Created by Filipe Marques on 20/08/24.
@@ -7,15 +7,17 @@
 
 import UIKit
 
-final class SpotlightCell: UICollectionViewCell {
+final class SpotlightCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "SpotlightCell"
 
     private let bannerImageView: UIImageView = {
         let imageView = UIImageView()
+
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 12
         imageView.translatesAutoresizingMaskIntoConstraints = false
+
         return imageView
     }()
 
