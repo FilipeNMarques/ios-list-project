@@ -12,3 +12,9 @@ struct CashItem: Codable {
     let bannerURL: String
     let description: String
 }
+
+extension CashItem: DetailConvertibleProtocol {
+    func toItemDetail() -> ItemDetail {
+        return ItemDetail(title: title, description: description, imageURL: bannerURL)
+    }
+}

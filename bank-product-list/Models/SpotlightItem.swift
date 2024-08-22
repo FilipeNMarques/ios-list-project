@@ -12,3 +12,9 @@ struct SpotlightItem: Codable {
     let bannerURL: String
     let description: String
 }
+
+extension SpotlightItem: DetailConvertibleProtocol {
+    func toItemDetail() -> ItemDetail {
+        return ItemDetail(title: name, description: description, imageURL: bannerURL)
+    }
+}

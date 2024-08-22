@@ -141,35 +141,27 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return headerView
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0, 2:
+            return 150
+        case 1:
+            return 220
+        default:
+            return UITableView.automaticDimension
+        }
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
-        let selectedItem: Any
 
         switch indexPath.section {
         case 2:
             if let cashItem = viewModel.cash {
-                selectedItem = cashItem
-            } else {
-                return
+                navigateToDetail(with: cashItem)
             }
         default:
-            return
-        }
-
-        navigateToDetail(with: selectedItem)
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
-            return 150
-        case 1:
-            return 220
-        case 2:
-            return 80
-        default:
-            return UITableView.automaticDimension
+            break
         }
     }
 }
@@ -187,17 +179,12 @@ extension HomeViewController: ProductTableViewCellDelegate {
 }
 
 extension HomeViewController {
-    private func navigateToDetail(with item: Any) {
-        let detailVC = DetailViewController()
+    private func navigateToDetail(with item: DetailConvertibleProtocol) {
+        let itemDetail = item.toItemDetail()
 
-        if let spotlightItem = item as? SpotlightItem {
-            detailVC.configure(with: spotlightItem.name, description: spotlightItem.description, imageURL: spotlightItem.bannerURL)
-        } else if let productItem = item as? ProductItem {
-            detailVC.configure(with: productItem.name, description: productItem.description, imageURL: productItem.imageURL)
-        } else if let cashItem = item as? CashItem {
-            detailVC.configure(with: cashItem.title, description: cashItem.description, imageURL: cashItem.bannerURL)
-        }
+        let detailViewModel = DetailViewModel(item: itemDetail)
+        let detailViewController = DetailViewController(viewModel: detailViewModel)
 
-        navigationController?.pushViewController(detailVC, animated: true)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
