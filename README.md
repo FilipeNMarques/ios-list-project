@@ -30,3 +30,6 @@ Bank product list é um aplicativo iOS desenvolvido com uma arquitetura **MVVM (
 ## Fastlane
 
 - **Lane `beta`:** Utilizada para automatizar o processo de build e upload do app para o TestFlight.
+
+## Como rodar
+- Clone o repositório e abra o arquivo `bank-product-list.xcodeproj`
