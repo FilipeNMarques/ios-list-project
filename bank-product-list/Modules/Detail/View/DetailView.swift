@@ -14,6 +14,7 @@ final class DetailView: UIView {
         let imageView = UIImageView()
 
         imageView.contentMode = .scaleAspectFit
+        imageView.accessibilityIdentifier = "DetailViewImageView"
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
         return imageView
@@ -24,6 +25,7 @@ final class DetailView: UIView {
 
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textAlignment = .center
+        label.accessibilityIdentifier = "DetailViewTitleLabel"
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -35,6 +37,7 @@ final class DetailView: UIView {
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.accessibilityIdentifier = "DetailViewDescriptionLabel"
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
