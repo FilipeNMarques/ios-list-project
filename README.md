@@ -1,9 +1,5 @@
 # Bank Product List
 
-## Visão Geral
-
-Bank product list é um aplicativo iOS desenvolvido com uma arquitetura **MVVM (Model-View-ViewModel)**, que facilita a separação de responsabilidades, tornando o código mais modular, testável e de fácil manutenção.
-
 ## Arquitetura
 
 - **MVVM:** A arquitetura MVVM foi escolhida por sua capacidade de organizar o código de maneira clara e coesa.
