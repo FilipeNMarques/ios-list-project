@@ -10,9 +10,7 @@ import UIKit
 final class HomeViewController: UIViewController {
 
     private let viewModel: HomeViewModelProtocol
-
     private var homeView = HomeView()
-
 
     init(viewModel: HomeViewModelProtocol = HomeViewModel()) {
         self.viewModel = viewModel
@@ -72,9 +70,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            return 1
-        case 1:
+        case 0, 1:
             return 1
         case 2:
             return viewModel.cash != nil ? 1 : 0
@@ -89,12 +85,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SpotlightTableViewCell.reuseIdentifier, for: indexPath) as? SpotlightTableViewCell else { return UITableViewCell() }
 
             cell.spotlightItems = viewModel.spotlightItems
+            cell.delegate = self
 
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as? ProductCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.reuseIdentifier, for: indexPath) as? ProductTableViewCell else { return UITableViewCell() }
 
             cell.products = viewModel.products
+            cell.delegate = self
 
             return cell
         case 2:
@@ -124,9 +122,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
         switch section {
         case 1:
-            titleLabel.text = "Produtos"
+            titleLabel.text = "Vida online"
         case 2:
-            titleLabel.text = "Cash"
+            titleLabel.text = "Serviços"
         default:
             return nil
         }
@@ -147,11 +145,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let selectedItem: Any
+
         switch indexPath.section {
-        case 0:
-            selectedItem = viewModel.spotlightItems[indexPath.row]
-        case 1:
-            selectedItem = viewModel.products[indexPath.row]
         case 2:
             if let cashItem = viewModel.cash {
                 selectedItem = cashItem
@@ -172,15 +167,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return 220
         case 2:
-            return 150
+            return 80
         default:
             return UITableView.automaticDimension
         }
     }
 }
 
-extension HomeViewController {
+extension HomeViewController: SpotlightTableViewCellDelegate {
+    func spotlightTableViewCell(_ cell: SpotlightTableViewCell, didSelectItem item: SpotlightItem) {
+        navigateToDetail(with: item)
+    }
+}
 
+extension HomeViewController: ProductTableViewCellDelegate {
+    func productTableViewCell(_ cell: ProductTableViewCell, didSelectItem item: ProductItem) {
+        navigateToDetail(with: item)
+    }
+}
+
+extension HomeViewController {
     private func navigateToDetail(with item: Any) {
         let detailVC = DetailViewController()
 

@@ -15,11 +15,6 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         let view = UIView()
 
         view.layer.cornerRadius = 12
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.1
-        view.layer.shadowOffset = CGSize(width: 0, height: 2)
-        view.layer.shadowRadius = 6
-        view.layer.masksToBounds = false
         view.translatesAutoresizingMaskIntoConstraints = false
 
         return view
@@ -68,11 +63,12 @@ final class ProductCollectionViewCell: UICollectionViewCell {
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
             productImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 6),
-            productImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -6),
             productImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            productImageView.heightAnchor.constraint(equalToConstant: 80),
+            productImageView.widthAnchor.constraint(equalToConstant: 80),
 
             titleLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 10),
-            titleLabel.centerXAnchor.constraint(equalTo: productImageView.centerXAnchor)
+            titleLabel.centerXAnchor.constraint(equalTo: productImageView.centerXAnchor),
         ])
     }
 
@@ -84,4 +80,3 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         }
     }
 }
-

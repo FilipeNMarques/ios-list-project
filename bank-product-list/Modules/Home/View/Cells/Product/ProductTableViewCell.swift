@@ -1,20 +1,20 @@
 //
-//  SpotlightTableViewCell.swift
+//  ProductTableViewCell.swift
 //  bank-product-list
 //
-//  Created by Filipe Marques on 21/08/24.
+//  Created by Filipe Marques on 20/08/24.
 //
 
 import UIKit
 
-protocol SpotlightTableViewCellDelegate: AnyObject {
-    func spotlightTableViewCell(_ cell: SpotlightTableViewCell, didSelectItem item: SpotlightItem)
+protocol ProductTableViewCellDelegate: AnyObject {
+    func productTableViewCell(_ cell: ProductTableViewCell, didSelectItem item: ProductItem)
 }
 
-final class SpotlightTableViewCell: UITableViewCell {
+final class ProductTableViewCell: UITableViewCell {
 
-    static let reuseIdentifier = "SpotlightTableViewCell"
-    weak var delegate: SpotlightTableViewCellDelegate?
+    static let reuseIdentifier = "ProductTableViewCell"
+    weak var delegate: ProductTableViewCellDelegate?
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -28,14 +28,14 @@ final class SpotlightTableViewCell: UITableViewCell {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         collectionView.register(
-            SpotlightCollectionViewCell.self,
-            forCellWithReuseIdentifier: SpotlightCollectionViewCell.reuseIdentifier
+            ProductCollectionViewCell.self,
+            forCellWithReuseIdentifier: ProductCollectionViewCell.reuseIdentifier
         )
 
         return collectionView
     }()
 
-    var spotlightItems: [SpotlightItem] = [] {
+    var products: [ProductItem] = [] {
         didSet {
             collectionView.reloadData()
         }
@@ -59,36 +59,36 @@ final class SpotlightTableViewCell: UITableViewCell {
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
         ])
     }
 }
 
-extension SpotlightTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ProductTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return spotlightItems.count
+        return products.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpotlightCollectionViewCell.reuseIdentifier, for: indexPath) as? SpotlightCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.reuseIdentifier, for: indexPath) as? ProductCollectionViewCell else {
             return UICollectionViewCell()
         }
 
-        let item = spotlightItems[indexPath.item]
+        let product = products[indexPath.item]
 
-        cell.configure(with: item)
+        cell.configure(with: product)
 
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItem = spotlightItems[indexPath.item]
+        let selectedItem = products[indexPath.item]
 
-        delegate?.spotlightTableViewCell(self, didSelectItem: selectedItem)
+        delegate?.productTableViewCell(self, didSelectItem: selectedItem)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 150)
+        return CGSize(width: 100, height: 120)
     }
 }

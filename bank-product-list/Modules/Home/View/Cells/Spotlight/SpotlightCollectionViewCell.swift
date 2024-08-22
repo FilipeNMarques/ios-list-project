@@ -8,7 +8,7 @@
 import UIKit
 
 final class SpotlightCollectionViewCell: UICollectionViewCell {
-    static let reuseIdentifier = "SpotlightCell"
+    static let reuseIdentifier = "SpotlightCollectionViewCell"
 
     private let bannerImageView: UIImageView = {
         let imageView = UIImageView()

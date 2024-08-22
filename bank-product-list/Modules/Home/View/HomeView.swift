@@ -15,7 +15,7 @@ final class HomeView: UIView {
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(SpotlightTableViewCell.self, forCellReuseIdentifier: SpotlightTableViewCell.reuseIdentifier)
-        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
+        tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: ProductTableViewCell.reuseIdentifier)
         tableView.register(CashCell.self, forCellReuseIdentifier: CashCell.reuseIdentifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.showsVerticalScrollIndicator = false
