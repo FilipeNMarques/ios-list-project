@@ -36,26 +36,6 @@ final class CashCell: UITableViewCell {
         return imageView
     }()
 
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-
-        return label
-    }()
-
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 0
-        label.textColor = .darkGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-
-        return label
-    }()
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -68,8 +48,8 @@ final class CashCell: UITableViewCell {
     private func setupUI() {
         contentView.addSubview(containerView)
         containerView.addSubview(bannerImageView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(descriptionLabel)
+
+        selectionStyle = .none
 
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
@@ -80,22 +60,11 @@ final class CashCell: UITableViewCell {
             bannerImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
             bannerImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             bannerImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            bannerImageView.heightAnchor.constraint(equalToConstant: 120),
-
-            titleLabel.topAnchor.constraint(equalTo: bannerImageView.bottomAnchor, constant: 12),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 6),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -6),
-
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 6),
-            descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -6),
-            descriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -12)
+            bannerImageView.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
 
     func configure(with cash: CashItem) {
-        titleLabel.text = cash.title
-        descriptionLabel.text = cash.description
         if let url = URL(string: cash.bannerURL) {
             bannerImageView.loadImage(from: url)
         }

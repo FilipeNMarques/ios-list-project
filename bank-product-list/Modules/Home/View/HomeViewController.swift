@@ -143,14 +143,55 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return headerView
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let selectedItem: Any
+        switch indexPath.section {
+        case 0:
+            selectedItem = viewModel.spotlightItems[indexPath.row]
+        case 1:
+            selectedItem = viewModel.products[indexPath.row]
+        case 2:
+            if let cashItem = viewModel.cash {
+                selectedItem = cashItem
+            } else {
+                return
+            }
+        default:
+            return
+        }
+
+        navigateToDetail(with: selectedItem)
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
             return 150
         case 1:
             return 220
+        case 2:
+            return 150
         default:
             return UITableView.automaticDimension
         }
+    }
+}
+
+extension HomeViewController {
+
+    private func navigateToDetail(with item: Any) {
+        let detailVC = DetailViewController()
+
+        if let spotlightItem = item as? SpotlightItem {
+            detailVC.configure(with: spotlightItem.name, description: spotlightItem.description, imageURL: spotlightItem.bannerURL)
+        } else if let productItem = item as? ProductItem {
+            detailVC.configure(with: productItem.name, description: productItem.description, imageURL: productItem.imageURL)
+        } else if let cashItem = item as? CashItem {
+            detailVC.configure(with: cashItem.title, description: cashItem.description, imageURL: cashItem.bannerURL)
+        }
+
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

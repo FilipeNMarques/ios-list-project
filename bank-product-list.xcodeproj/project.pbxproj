@@ -33,6 +33,7 @@
 		B73CE88B2C755ABF004E9919 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE88A2C755ABF004E9919 /* HomeViewModelTests.swift */; };
 		B73CE88F2C765E48004E9919 /* SpotlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE88E2C765E48004E9919 /* SpotlightTableViewCell.swift */; };
 		B73CE8942C766B66004E9919 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE8932C766B66004E9919 /* ProductCollectionViewCell.swift */; };
+		B73CE8972C76932B004E9919 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE8962C76932B004E9919 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		B73CE88A2C755ABF004E9919 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		B73CE88E2C765E48004E9919 /* SpotlightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightTableViewCell.swift; sourceTree = "<group>"; };
 		B73CE8932C766B66004E9919 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		B73CE8962C76932B004E9919 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 		B73CE81D2C74E3DF004E9919 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B73CE8952C769302004E9919 /* Detail */,
 				B73CE82E2C7501F7004E9919 /* Home */,
 			);
 			path = Modules;
@@ -320,6 +323,14 @@
 				B73CE8932C766B66004E9919 /* ProductCollectionViewCell.swift */,
 			);
 			path = Product;
+			sourceTree = "<group>";
+		};
+		B73CE8952C769302004E9919 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B73CE8962C76932B004E9919 /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +469,7 @@
 				B73CE8332C7502FD004E9919 /* HomeViewModel.swift in Sources */,
 				B73CE8292C74E5D9004E9919 /* NetworkError.swift in Sources */,
 				B73CE7EA2C74D9E7004E9919 /* AppDelegate.swift in Sources */,
+				B73CE8972C76932B004E9919 /* DetailViewController.swift in Sources */,
 				B73CE88F2C765E48004E9919 /* SpotlightTableViewCell.swift in Sources */,
 				B73CE8822C751731004E9919 /* HomeView.swift in Sources */,
 				B73CE8802C75115E004E9919 /* APIEndpoints.swift in Sources */,
