@@ -34,6 +34,7 @@
 		B73CE88F2C765E48004E9919 /* SpotlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE88E2C765E48004E9919 /* SpotlightTableViewCell.swift */; };
 		B73CE8942C766B66004E9919 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE8932C766B66004E9919 /* ProductCollectionViewCell.swift */; };
 		B73CE8972C76932B004E9919 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CE8962C76932B004E9919 /* DetailViewController.swift */; };
+		B74281762C777AE800A5F9C0 /* GlobalAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74281752C777AE800A5F9C0 /* GlobalAlertTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		B73CE88E2C765E48004E9919 /* SpotlightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightTableViewCell.swift; sourceTree = "<group>"; };
 		B73CE8932C766B66004E9919 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		B73CE8962C76932B004E9919 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B74281752C777AE800A5F9C0 /* GlobalAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAlertTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		B73CE7FF2C74D9E8004E9919 /* bank-product-listTests */ = {
 			isa = PBXGroup;
 			children = (
+				B74281742C777AD800A5F9C0 /* Utils */,
 				B73CE8882C755AAE004E9919 /* Modules */,
 				B73CE8852C755A70004E9919 /* Mocks */,
 			);
@@ -333,6 +336,14 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		B74281742C777AD800A5F9C0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B74281752C777AE800A5F9C0 /* GlobalAlertTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B74281762C777AE800A5F9C0 /* GlobalAlertTests.swift in Sources */,
 				B73CE8872C755A79004E9919 /* MockAPIClient.swift in Sources */,
 				B73CE88B2C755ABF004E9919 /* HomeViewModelTests.swift in Sources */,
 			);
