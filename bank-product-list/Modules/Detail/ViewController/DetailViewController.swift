@@ -27,6 +27,9 @@ final class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.title = viewModel.itemDetail.title
+
         detailView.configure(with: viewModel)
     }
 }

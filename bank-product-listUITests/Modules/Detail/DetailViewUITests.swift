@@ -25,11 +25,9 @@ final class DetailViewUITests: XCTestCase {
         let app = XCUIApplication()
 
         let imageView = app.images["DetailViewImageView"]
-        let titleLabel = app.staticTexts["DetailViewTitleLabel"]
         let descriptionLabel = app.staticTexts["DetailViewDescriptionLabel"]
 
         XCTAssertTrue(imageView.exists, "The image should be present in the DetailView")
-        XCTAssertTrue(titleLabel.exists, "The title should be present in the DetailView")
         XCTAssertTrue(descriptionLabel.exists, "The description should be present in the DetailView")
     }
 }

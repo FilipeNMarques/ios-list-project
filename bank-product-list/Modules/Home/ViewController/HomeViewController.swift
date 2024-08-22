@@ -185,6 +185,8 @@ extension HomeViewController {
         let detailViewModel = DetailViewModel(item: itemDetail)
         let detailViewController = DetailViewController(viewModel: detailViewModel)
 
+        navigationItem.backButtonTitle = ""
+
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
